@@ -1,0 +1,24 @@
+{
+  "name": "Todo_list",
+  "version": "1.0.0",
+  "description": "Basic to do list using webpack to bundle files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gids-dadi/Todo_list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gids-dadi/Todo_list/issues"
+  },
+  "homepage": "https://github.com/gids-dadi/Todo_list#readme",
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
