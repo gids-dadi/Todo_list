@@ -2,103 +2,76 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  background: #df2323;
-}
-
-
-
-
-/* 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  background: #fafafa;
+  background: #e1e0e0;
+  list-style: none;
 }
 
 section {
   max-width: 450px;
-  margin: 10% auto;
+  margin: 15% auto;
   padding-top: 20px;
   background-color: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-h3 {
-  padding: 0 20px 8px 20px;
-  font-size: 16px;
+h2 {
+  margin: 0px 15px;
+  padding-bottom: 10px;
+  font-size: 22px;
   font-weight: 500;
   display: flex;
 }
 
-h3::after {
-  content: url('images/loop2.svg');
-  display: inline-block;
+h2::after {
+  content: url("loop2.svg");
+  display: inline;
   width: 20px;
   height: 20px;
   margin-left: auto;
   cursor: pointer;
 }
 
-hr {
-  border: 1px solid #ccc;
-}
-
 form {
   padding: 0 20px;
-  height: 48px;
+  height: 38px;
   width: 100%;
-}
-
-input {
-  width: 100%;
-  height: 100%;
   border: none;
-  outline: none;
-  font-size: 16px;
-  display: flex;
-}
-
-.container {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
 }
 
 .todo {
-  padding: 13px 20px;
+  padding:  0 10px;
+  width: 90%;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.todo-list {
+  padding: 0;
   display: flex;
-  background-color: inherit;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+  display: flex;
   align-items: center;
+  padding-left: 10px;
+  width:100%;
 }
 
-.fa {
-  cursor: pointer;
-}
-
-.fa-check {
-  color: #4caf50;
-}
-
-.dark {
-  background-color: bisque;
-  color: #333;
-}
-
-.fa-trash-can:hover {
-  color: #333;
-  cursor: pointer;
-}
-
-.fa-ellipsis-vertical {
-  cursor: grab;
+li>div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
   margin-left: 20px;
+}
+
+img {
+  width: 10px;
+  height: 15px;
 }
 
 .btn {
@@ -112,5 +85,4 @@ input {
   justify-content: center;
   cursor: pointer;
   color: grey;
-  font-style: italic;
-} */
+}

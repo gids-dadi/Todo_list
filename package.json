@@ -29,6 +29,8 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "file-loader": "^6.2.0",
+    "lodash": "^4.17.21",
+    "save-dev": "0.0.1-security"
   }
 }
