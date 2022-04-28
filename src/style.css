@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;1,400&display=swap');
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -15,7 +16,7 @@ section {
 }
 
 h2 {
-  margin: 0px 15px;
+  margin: 0 15px;
   padding-bottom: 10px;
   font-size: 22px;
   font-weight: 500;
@@ -23,7 +24,7 @@ h2 {
 }
 
 h2::after {
-  content: url("loop2.svg");
+  content: url('loop2.svg');
   display: inline;
   width: 20px;
   height: 20px;
@@ -39,7 +40,7 @@ form {
 }
 
 .todo {
-  padding:  0 10px;
+  padding: 0 10px;
   width: 90%;
   height: 100%;
   border: none;
@@ -58,10 +59,10 @@ li {
   display: flex;
   align-items: center;
   padding-left: 10px;
-  width:100%;
+  width: 100%;
 }
 
-li>div {
+li > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
