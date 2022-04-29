@@ -51,8 +51,7 @@ export default function populate() {
       checkBox.addEventListener('click', () => {
         checkBox.classList.toggle('fa-square');
         checkBox.classList.toggle('fa-square-check');
-        listContainer[item.index].completed =
-          !listContainer[item.index].completed;
+        listContainer[item.index].completed = !listContainer[item.index].completed;
         localStorage.setItem('container', JSON.stringify(listContainer));
       });
       menuBtn.addEventListener('click', () => {
@@ -63,12 +62,12 @@ export default function populate() {
           menuBtn.classList.add(
             'menu-icon',
             'fa-ellipsis-vertical',
-            `menu-icon${item.index}`
+            `menu-icon${item.index}`,
           );
           menuBtn.classList.remove(
             'delete-icon',
             `delete-icon${item.index}`,
-            'fa-trash-can'
+            'fa-trash-can',
           );
         } else {
           taskDisc.setAttribute('contenteditable', true);
@@ -76,12 +75,12 @@ export default function populate() {
           menuBtn.classList.remove(
             'menu-icon',
             'fa-ellipsis-vertical',
-            `menu-icon${item.index}`
+            `menu-icon${item.index}`,
           );
           menuBtn.classList.add(
             'delete-icon',
             `delete-icon${item.index}`,
-            'fa-trash-can'
+            'fa-trash-can',
           );
         }
       });
@@ -96,12 +95,12 @@ export default function populate() {
         menuBtn.classList.add(
           'menu-icon',
           'fa-ellipsis-vertical',
-          `menu-icon${item.index}`
+          `menu-icon${item.index}`,
         );
         menuBtn.classList.remove(
           'delete-icon',
           `delete-icon${item.index}`,
-          'fa-trash-can'
+          'fa-trash-can',
         );
       });
       // Prevent the Enter key from working while editing the task discriptions.
