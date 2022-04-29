@@ -17,11 +17,37 @@ function menuListener() {
     const checkBox = document.querySelector(`.check-box${item.index}`);
     const taskName = taskDisc.innerHTML;
 
+    function addTask(taskInput) {
+      const newTask = new Task(taskInput);
+      listContainer.push(newTask);
+      localStorage.setItem('container', JSON.stringify(listContainer));
+      populate();
+    }
+
+    function addListener() {
+      const textField = document.querySelector('.add-text');
+
+      textField.addEventListener('keypress', (e) => {
+        const textValue = document.getElementById('add-text');
+        const taskInput = textValue.value;
+        if (e.keyCode === 13 && taskInput !== '') {
+          addTask(taskInput);
+        }
+      });
+    }
+
+    function deleteTask(id) {
+      listContainer = listContainer.filter((item) => item.index !== id);
+      localStorage.setItem('container', JSON.stringify(listContainer));
+      populate();
+    }
+
+
+
     checkBox.addEventListener('click', () => {
-      checkBox.classList.toggle('fa-square');
-      checkBox.classList.toggle('fa-square-check');
-      listContainer[item.index].completed =
-        !listContainer[item.index].completed;
+    checkBox.classList.toggle('fa-square');
+    checkBox.classList.toggle('fa-square-check');
+    listContainer[item.index].completed = !listContainer[item.index].completed;
       localStorage.setItem('container', JSON.stringify(listContainer));
     });
     menuBtn.addEventListener('click', () => {
@@ -82,32 +108,32 @@ function menuListener() {
   });
 }
 
-function addTask(taskInput) {
-  const newTask = new Task(taskInput);
-  listContainer.push(newTask);
-  localStorage.setItem('container', JSON.stringify(listContainer));
-  populate();
-}
+// function addTask(taskInput) {
+//   const newTask = new Task(taskInput);
+//   listContainer.push(newTask);
+//   localStorage.setItem('container', JSON.stringify(listContainer));
+//   populate();
+// }
 
-function addListener() {
-  const textField = document.querySelector('.add-text');
+// function addListener() {
+//   const textField = document.querySelector('.add-text');
 
-  textField.addEventListener('keypress', (e) => {
-    const textValue = document.getElementById('add-text');
-    const taskInput = textValue.value;
-    if (e.keyCode === 13 && taskInput !== '') {
-      addTask(taskInput);
-    }
-  });
-}
+//   textField.addEventListener('keypress', (e) => {
+//     const textValue = document.getElementById('add-text');
+//     const taskInput = textValue.value;
+//     if (e.keyCode === 13 && taskInput !== '') {
+//       addTask(taskInput);
+//     }
+//   });
+// }
 
 
 
-function deleteTask(id) {
-  listContainer = listContainer.filter((item) => item.index !== id);
-  localStorage.setItem('container', JSON.stringify(listContainer));
-  populate();
-}
+// function deleteTask(id) {
+//   listContainer = listContainer.filter((item) => item.index !== id);
+//   localStorage.setItem('container', JSON.stringify(listContainer));
+//   populate();
+// }
 
 export default function populate() {
   const storedItems = JSON.parse(localStorage.getItem('container'));
