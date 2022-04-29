@@ -7,53 +7,92 @@ class Task {
     this.description = disc;
   }
 }
+export default function populate() {
+  const storedItems = JSON.parse(localStorage.getItem('container'));
+  if (storedItems !== null) {
+    listContainer = storedItems;
+  }
 
-function addTask(taskInput) {
-  const newTask = new Task(taskInput);
-  listContainer.push(newTask);
-  localStorage.setItem('container', JSON.stringify(listContainer));
-  populate();
-}
+  function addTask(taskInput) {
+    const newTask = new Task(taskInput);
+    listContainer.push(newTask);
+    localStorage.setItem('container', JSON.stringify(listContainer));
+    populate();
+  }
 
-function addListener() {
-  const textField = document.querySelector('.add-text');
+  function addListener() {
+    const textField = document.querySelector('.add-text');
 
-  textField.addEventListener('keypress', (e) => {
-    const textValue = document.getElementById('add-text');
-    const taskInput = textValue.value;
-    if (e.keyCode === 13 && taskInput !== '') {
-      addTask(taskInput);
-    }
-  });
-}
-
-function deleteTask(id) {
-  listContainer = listContainer.filter((item) => item.index !== id);
-  localStorage.setItem('container', JSON.stringify(listContainer));
-  populate();
-}
-
-const listDisplay = document.querySelector('.screen');
-
-function menuListener() {
-  listContainer.forEach((item) => {
-    const taskView = document.querySelector(`.task${item.index}`);
-    const menuBtn = document.querySelector(`.menu-icon${item.index}`);
-    const taskDisc = document.querySelector(`.task-name${item.index}`);
-    const checkBox = document.querySelector(`.check-box${item.index}`);
-    const taskName = taskDisc.innerHTML;
-
-    checkBox.addEventListener('click', () => {
-    checkBox.classList.toggle('fa-square');
-    checkBox.classList.toggle('fa-square-check');
-    listContainer[item.index].completed = !listContainer[item.index].completed;
-      localStorage.setItem('container', JSON.stringify(listContainer));
+    textField.addEventListener('keypress', (e) => {
+      const textValue = document.getElementById('add-text');
+      const taskInput = textValue.value;
+      if (e.keyCode === 13 && taskInput !== '') {
+        addTask(taskInput);
+      }
     });
-    menuBtn.addEventListener('click', () => {
-      deleteTask(item.index);
-    });
-    taskView.addEventListener('mouseenter', () => {
-      if (menuBtn.classList.contains('delete-icon')) {
+  }
+
+  function deleteTask(id) {
+    listContainer = listContainer.filter((item) => item.index !== id);
+    localStorage.setItem('container', JSON.stringify(listContainer));
+    populate();
+  }
+
+  const listDisplay = document.querySelector('.screen');
+
+  function menuListener() {
+    listContainer.forEach((item) => {
+      const taskView = document.querySelector(`.task${item.index}`);
+      const menuBtn = document.querySelector(`.menu-icon${item.index}`);
+      const taskDisc = document.querySelector(`.task-name${item.index}`);
+      const checkBox = document.querySelector(`.check-box${item.index}`);
+      const taskName = taskDisc.innerHTML;
+
+      checkBox.addEventListener('click', () => {
+        checkBox.classList.toggle('fa-square');
+        checkBox.classList.toggle('fa-square-check');
+        listContainer[item.index].completed =
+          !listContainer[item.index].completed;
+        localStorage.setItem('container', JSON.stringify(listContainer));
+      });
+      menuBtn.addEventListener('click', () => {
+        deleteTask(item.index);
+      });
+      taskView.addEventListener('mouseenter', () => {
+        if (menuBtn.classList.contains('delete-icon')) {
+          menuBtn.classList.add(
+            'menu-icon',
+            'fa-ellipsis-vertical',
+            `menu-icon${item.index}`
+          );
+          menuBtn.classList.remove(
+            'delete-icon',
+            `delete-icon${item.index}`,
+            'fa-trash-can'
+          );
+        } else {
+          taskDisc.setAttribute('contenteditable', true);
+          taskDisc.classList.add('yellowish');
+          menuBtn.classList.remove(
+            'menu-icon',
+            'fa-ellipsis-vertical',
+            `menu-icon${item.index}`
+          );
+          menuBtn.classList.add(
+            'delete-icon',
+            `delete-icon${item.index}`,
+            'fa-trash-can'
+          );
+        }
+      });
+      taskView.addEventListener('mouseleave', () => {
+        const newName = taskDisc.innerHTML;
+        if (taskName !== newName) {
+          listContainer[item.index].description = newName;
+          localStorage.setItem('container', JSON.stringify(listContainer));
+        }
+        taskDisc.classList.remove('yellowish');
+        taskDisc.setAttribute('contenteditable', false);
         menuBtn.classList.add(
           'menu-icon',
           'fa-ellipsis-vertical',
@@ -62,83 +101,48 @@ function menuListener() {
         menuBtn.classList.remove(
           'delete-icon',
           `delete-icon${item.index}`,
-          'fa-trash-can',
+          'fa-trash-can'
         );
-      } else {
-        taskDisc.setAttribute('contenteditable', true);
-        taskDisc.classList.add('yellowish');
-        menuBtn.classList.remove(
-          'menu-icon',
-          'fa-ellipsis-vertical',
-          `menu-icon${item.index}`,
-        );
-        menuBtn.classList.add(
-          'delete-icon',
-          `delete-icon${item.index}`,
-          'fa-trash-can',
-        );
-      }
+      });
+      // Prevent the Enter key from working while editing the task discriptions.
+      taskDisc.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+          e.preventDefault();
+        }
+      });
     });
-    taskView.addEventListener('mouseleave', () => {
-      const newName = taskDisc.innerHTML;
-      if (taskName !== newName) {
-        listContainer[item.index].description = newName;
-        localStorage.setItem('container', JSON.stringify(listContainer));
-      }
-      taskDisc.classList.remove('yellowish');
-      taskDisc.setAttribute('contenteditable', false);
-      menuBtn.classList.add(
-        'menu-icon',
-        'fa-ellipsis-vertical',
-        `menu-icon${item.index}`,
-      );
-      menuBtn.classList.remove(
-        'delete-icon',
-        `delete-icon${item.index}`,
-        'fa-trash-can',
-      );
-    });
-    // Prevent the Enter key from working while editing the task discriptions.
-    taskDisc.addEventListener('keydown', (e) => {
-      if (e.keyCode === 13) {
-        e.preventDefault();
-      }
-    });
-  });
-}
-
-// function addTask(taskInput) {
-//   const newTask = new Task(taskInput);
-//   listContainer.push(newTask);
-//   localStorage.setItem('container', JSON.stringify(listContainer));
-//   populate();
-// }
-
-// function addListener() {
-//   const textField = document.querySelector('.add-text');
-
-//   textField.addEventListener('keypress', (e) => {
-//     const textValue = document.getElementById('add-text');
-//     const taskInput = textValue.value;
-//     if (e.keyCode === 13 && taskInput !== '') {
-//       addTask(taskInput);
-//     }
-//   });
-// }
-
-
-
-// function deleteTask(id) {
-//   listContainer = listContainer.filter((item) => item.index !== id);
-//   localStorage.setItem('container', JSON.stringify(listContainer));
-//   populate();
-// }
-
-export default function populate() {
-  const storedItems = JSON.parse(localStorage.getItem('container'));
-  if (storedItems !== null) {
-    listContainer = storedItems;
   }
+
+  // function addTask(taskInput) {
+  //   const newTask = new Task(taskInput);
+  //   listContainer.push(newTask);
+  //   localStorage.setItem('container', JSON.stringify(listContainer));
+  //   populate();
+  // }
+
+  // function addListener() {
+  //   const textField = document.querySelector('.add-text');
+
+  //   textField.addEventListener('keypress', (e) => {
+  //     const textValue = document.getElementById('add-text');
+  //     const taskInput = textValue.value;
+  //     if (e.keyCode === 13 && taskInput !== '') {
+  //       addTask(taskInput);
+  //     }
+  //   });
+  // }
+
+  // function deleteTask(id) {
+  //   listContainer = listContainer.filter((item) => item.index !== id);
+  //   localStorage.setItem('container', JSON.stringify(listContainer));
+  //   populate();
+  // }
+
+  // export default function populate() {
+  //   const storedItems = JSON.parse(localStorage.getItem('container'));
+  //   if (storedItems !== null) {
+  //     listContainer = storedItems;
+  //   }
   listDisplay.innerHTML = '';
   const ul = document.createElement('ul');
   ul.classList.add('list-holder');
