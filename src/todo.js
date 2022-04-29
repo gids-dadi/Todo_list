@@ -7,6 +7,32 @@ class Task {
     this.description = disc;
   }
 }
+
+function addTask(taskInput) {
+  const newTask = new Task(taskInput);
+  listContainer.push(newTask);
+  localStorage.setItem('container', JSON.stringify(listContainer));
+  populate();
+}
+
+function addListener() {
+  const textField = document.querySelector('.add-text');
+
+  textField.addEventListener('keypress', (e) => {
+    const textValue = document.getElementById('add-text');
+    const taskInput = textValue.value;
+    if (e.keyCode === 13 && taskInput !== '') {
+      addTask(taskInput);
+    }
+  });
+}
+
+function deleteTask(id) {
+  listContainer = listContainer.filter((item) => item.index !== id);
+  localStorage.setItem('container', JSON.stringify(listContainer));
+  populate();
+}
+
 const listDisplay = document.querySelector('.screen');
 
 function menuListener() {
@@ -16,33 +42,6 @@ function menuListener() {
     const taskDisc = document.querySelector(`.task-name${item.index}`);
     const checkBox = document.querySelector(`.check-box${item.index}`);
     const taskName = taskDisc.innerHTML;
-
-    function addTask(taskInput) {
-      const newTask = new Task(taskInput);
-      listContainer.push(newTask);
-      localStorage.setItem('container', JSON.stringify(listContainer));
-      populate();
-    }
-
-    function addListener() {
-      const textField = document.querySelector('.add-text');
-
-      textField.addEventListener('keypress', (e) => {
-        const textValue = document.getElementById('add-text');
-        const taskInput = textValue.value;
-        if (e.keyCode === 13 && taskInput !== '') {
-          addTask(taskInput);
-        }
-      });
-    }
-
-    function deleteTask(id) {
-      listContainer = listContainer.filter((item) => item.index !== id);
-      localStorage.setItem('container', JSON.stringify(listContainer));
-      populate();
-    }
-
-
 
     checkBox.addEventListener('click', () => {
     checkBox.classList.toggle('fa-square');
