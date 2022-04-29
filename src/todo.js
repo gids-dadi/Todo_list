@@ -33,12 +33,12 @@ function menuListener() {
         menuBtn.classList.add(
           'menu-icon',
           'fa-ellipsis-vertical',
-          `menu-icon${item.index}`,
+          `menu-icon${item.index}`
         );
         menuBtn.classList.remove(
           'delete-icon',
           `delete-icon${item.index}`,
-          'fa-trash-can',
+          'fa-trash-can'
         );
       } else {
         taskDisc.setAttribute('contenteditable', true);
@@ -46,12 +46,12 @@ function menuListener() {
         menuBtn.classList.remove(
           'menu-icon',
           'fa-ellipsis-vertical',
-          `menu-icon${item.index}`,
+          `menu-icon${item.index}`
         );
         menuBtn.classList.add(
           'delete-icon',
           `delete-icon${item.index}`,
-          'fa-trash-can',
+          'fa-trash-can'
         );
       }
     });
@@ -66,12 +66,12 @@ function menuListener() {
       menuBtn.classList.add(
         'menu-icon',
         'fa-ellipsis-vertical',
-        `menu-icon${item.index}`,
+        `menu-icon${item.index}`
       );
       menuBtn.classList.remove(
         'delete-icon',
         `delete-icon${item.index}`,
-        'fa-trash-can',
+        'fa-trash-can'
       );
     });
     // Prevent the Enter key from working while editing the task discriptions.
@@ -81,6 +81,31 @@ function menuListener() {
       }
     });
   });
+}
+
+function addListener() {
+  const textField = document.querySelector('.add-text');
+
+  textField.addEventListener('keypress', (e) => {
+    const textValue = document.getElementById('add-text');
+    const taskInput = textValue.value;
+    if (e.keyCode === 13 && taskInput !== '') {
+      addTask(taskInput);
+    }
+  });
+}
+
+function addTask(taskInput) {
+  const newTask = new Task(taskInput);
+  listContainer.push(newTask);
+  localStorage.setItem('container', JSON.stringify(listContainer));
+  populate();
+}
+
+function deleteTask(id) {
+  listContainer = listContainer.filter((item) => item.index !== id);
+  localStorage.setItem('container', JSON.stringify(listContainer));
+  populate();
 }
 
 export default function populate() {
@@ -121,30 +146,30 @@ export default function populate() {
   menuListener();
 }
 
-function addListener() {
-  const textField = document.querySelector('.add-text');
+// function addListener() {
+//   const textField = document.querySelector('.add-text');
 
-  textField.addEventListener('keypress', (e) => {
-    const textValue = document.getElementById('add-text');
-    const taskInput = textValue.value;
-    if (e.keyCode === 13 && taskInput !== '') {
-      addTask(taskInput);
-    }
-  });
-}
+//   textField.addEventListener('keypress', (e) => {
+//     const textValue = document.getElementById('add-text');
+//     const taskInput = textValue.value;
+//     if (e.keyCode === 13 && taskInput !== '') {
+//       addTask(taskInput);
+//     }
+//   });
+// }
 
-function addTask(taskInput) {
-  const newTask = new Task(taskInput);
-  listContainer.push(newTask);
-  localStorage.setItem('container', JSON.stringify(listContainer));
-  populate();
-}
+// function addTask(taskInput) {
+//   const newTask = new Task(taskInput);
+//   listContainer.push(newTask);
+//   localStorage.setItem('container', JSON.stringify(listContainer));
+//   populate();
+// }
 
-function deleteTask(id) {
-  listContainer = listContainer.filter((item) => item.index !== id);
-  localStorage.setItem('container', JSON.stringify(listContainer));
-  populate();
-}
+// function deleteTask(id) {
+//   listContainer = listContainer.filter((item) => item.index !== id);
+//   localStorage.setItem('container', JSON.stringify(listContainer));
+//   populate();
+// }
 
 window.onload = () => {
   populate();
