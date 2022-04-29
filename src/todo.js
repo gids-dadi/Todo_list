@@ -33,12 +33,12 @@ function menuListener() {
         menuBtn.classList.add(
           'menu-icon',
           'fa-ellipsis-vertical',
-          `menu-icon${item.index}`
+          `menu-icon${item.index}`,
         );
         menuBtn.classList.remove(
           'delete-icon',
           `delete-icon${item.index}`,
-          'fa-trash-can'
+          'fa-trash-can',
         );
       } else {
         taskDisc.setAttribute('contenteditable', true);
@@ -46,12 +46,12 @@ function menuListener() {
         menuBtn.classList.remove(
           'menu-icon',
           'fa-ellipsis-vertical',
-          `menu-icon${item.index}`
+          `menu-icon${item.index}`,
         );
         menuBtn.classList.add(
           'delete-icon',
           `delete-icon${item.index}`,
-          'fa-trash-can'
+          'fa-trash-can',
         );
       }
     });
@@ -66,12 +66,12 @@ function menuListener() {
       menuBtn.classList.add(
         'menu-icon',
         'fa-ellipsis-vertical',
-        `menu-icon${item.index}`
+        `menu-icon${item.index}`,
       );
       menuBtn.classList.remove(
         'delete-icon',
         `delete-icon${item.index}`,
-        'fa-trash-can'
+        'fa-trash-can',
       );
     });
     // Prevent the Enter key from working while editing the task discriptions.
@@ -94,7 +94,7 @@ export default function populate() {
   ul.innerHTML = `<li class="header">Today's To Do<i class="fa-solid fa-rotate"></i></li>
             <li>
                 <input type="text" id="add-text" class="add-text" placeholder="
-                to your list" required>
+               Add to your list" required>
                 <i class="fa-solid fa-angle-left"></i>
             </li>`;
   let itemNo = 0;
