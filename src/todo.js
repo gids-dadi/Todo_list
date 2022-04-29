@@ -1,4 +1,3 @@
-
 let listContainer = [];
 
 class Task {
@@ -94,7 +93,8 @@ export default function populate() {
   ul.classList.add('list-holder');
   ul.innerHTML = `<li class="header">Today's To Do<i class="fa-solid fa-rotate"></i></li>
             <li>
-                <input type="text" id="add-text" class="add-text" placeholder="Add to your list" required>
+                <input type="text" id="add-text" class="add-text" placeholder="
+                to your list" required>
                 <i class="fa-solid fa-angle-left"></i>
             </li>`;
   let itemNo = 0;
@@ -119,7 +119,6 @@ export default function populate() {
   listDisplay.appendChild(ul);
   addListener();
   menuListener();
-  cleanListener();
 }
 
 function addListener() {
@@ -150,41 +149,3 @@ function deleteTask(id) {
 window.onload = () => {
   populate();
 };
-
-/*
-
-
-
-const todos = JSON.parse(localStorage.getItem('todos')) || [];
-
-export const addTodo = (description) => {
-  const index = todos && todos.length > 0 ? todos.length + 1 : 1;
-  const todo = { description, index, completed: false };
-  todos.push(todo);
-  localStorage.setItem('todos', JSON.stringify(todos));
-  window.location.reload();
-};
-
-export const deleteTodo = (index) => {
-  const remainingTodos = todos.filter((todo) => todo.index !== index);
-  if (remainingTodos.length > 0) {
-    remainingTodos.forEach((todo, index) => {
-      todo.index = index + 1;
-    });
-    localStorage.setItem('todos', JSON.stringify(remainingTodos));
-    window.location.reload();
-  } else {
-    localStorage.setItem('todos', JSON.stringify(remainingTodos));
-    window.location.reload();
-  }
-};
-
-export const updateDescription = (index, description) => {
-  const todo = todos.filter((todo) => todo.index === index)[0];
-  todo.description = description;
-  localStorage.setItem('todos', JSON.stringify(todos));
-  window.location.reload();
-};
-
-export const refreshPage = () => window.location.reload();
-*/
