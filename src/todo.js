@@ -80,7 +80,7 @@ export default function populate() {
           menuBtn.classList.add(
             'delete-icon',
             `delete-icon${item.index}`,
-            'fa-trash-can'
+            'fa-trash-can',
           );
         }
       });
