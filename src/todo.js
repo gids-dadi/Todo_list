@@ -1,4 +1,4 @@
-import './todo2.js';
+import cleanListener from "./todo2";
 
 let listContainer = [];
 
