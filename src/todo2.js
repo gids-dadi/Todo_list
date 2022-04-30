@@ -1,10 +1,5 @@
  import populate from "./todo"; 
 
-// export default function populate() {
-//   const storedItems = JSON.parse(localStorage.getItem('container'));
-//   if (storedItems !== null) {
-//     listContainer = storedItems;
-//   }
 
 export default function cleanListener() {
   const clearBtn = document.querySelector('.clear-text');
