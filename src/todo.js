@@ -1,5 +1,4 @@
 // import cleanListener from './todo2';
-
 let listContainer = [];
 
 class Task {
