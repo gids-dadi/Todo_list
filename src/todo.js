@@ -1,5 +1,4 @@
 import cleanListener from './todo2.js';
-// import populate from ".todo2.js";
 
 let listContainer = [];
 
