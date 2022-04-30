@@ -1,4 +1,4 @@
-import populate from './todo.js';
+import { populate} from './todo.js';
 
 export default function cleanListener() {
   const clearBtn = document.querySelector('.clear-text');
