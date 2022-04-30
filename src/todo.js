@@ -1,6 +1,4 @@
-// import cleanListener from './todo2';
 let listContainer = [];
-
 class Task {
   constructor(disc) {
     this.index = 0;
