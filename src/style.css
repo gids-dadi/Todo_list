@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: #ebe7e7;
+  background: #fff;
   height: 100vh;
   box-sizing: border-box;
   margin: 0;
@@ -13,7 +13,7 @@ li {
   height: 60px;
   border-bottom: 1px solid gray;
   line-height: 60px;
-  padding: 0 16px;
+  padding: 0 15px;
   font-size: 20px;
   display: flex;
 }
