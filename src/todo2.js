@@ -1,4 +1,4 @@
- import populate from "./todo"; './todo.js';
+ import populate from "./todo"; 
 
 // export default function populate() {
 //   const storedItems = JSON.parse(localStorage.getItem('container'));
