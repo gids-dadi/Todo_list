@@ -1,4 +1,4 @@
-import cleanListener from "./todo2";
+import "./todo2";
 
 let listContainer = [];
 
