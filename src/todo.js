@@ -112,6 +112,36 @@ export default function populate() {
     });
   }
 
+  // function addTask(taskInput) {
+  //   const newTask = new Task(taskInput);
+  //   listContainer.push(newTask);
+  //   localStorage.setItem('container', JSON.stringify(listContainer));
+  //   populate();
+  // }
+
+  // function addListener() {
+  //   const textField = document.querySelector('.add-text');
+
+  //   textField.addEventListener('keypress', (e) => {
+  //     const textValue = document.getElementById('add-text');
+  //     const taskInput = textValue.value;
+  //     if (e.keyCode === 13 && taskInput !== '') {
+  //       addTask(taskInput);
+  //     }
+  //   });
+  // }
+
+  // function deleteTask(id) {
+  //   listContainer = listContainer.filter((item) => item.index !== id);
+  //   localStorage.setItem('container', JSON.stringify(listContainer));
+  //   populate();
+  // }
+
+  // export default function populate() {
+  //   const storedItems = JSON.parse(localStorage.getItem('container'));
+  //   if (storedItems !== null) {
+  //     listContainer = storedItems;
+  //   }
   listDisplay.innerHTML = '';
   const ul = document.createElement('ul');
   ul.classList.add('list-holder');
@@ -144,6 +174,32 @@ export default function populate() {
   addListener();
   menuListener();
 }
+
+// function addListener() {
+//   const textField = document.querySelector('.add-text');
+
+//   textField.addEventListener('keypress', (e) => {
+//     const textValue = document.getElementById('add-text');
+//     const taskInput = textValue.value;
+//     if (e.keyCode === 13 && taskInput !== '') {
+//       addTask(taskInput);
+//     }
+//   });
+// }
+
+// function addTask(taskInput) {
+//   const newTask = new Task(taskInput);
+//   listContainer.push(newTask);
+//   localStorage.setItem('container', JSON.stringify(listContainer));
+//   populate();
+// }
+
+// function deleteTask(id) {
+//   listContainer = listContainer.filter((item) => item.index !== id);
+//   localStorage.setItem('container', JSON.stringify(listContainer));
+//   populate();
+// }
+
 window.onload = () => {
   populate();
 };
