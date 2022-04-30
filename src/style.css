@@ -2,88 +2,96 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  background: #e1e0e0;
-  list-style: none;
-}
-
-section {
-  max-width: 450px;
-  margin: 15% auto;
-  padding-top: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-h2 {
-  margin: 0 15px;
-  padding-bottom: 10px;
-  font-size: 22px;
-  font-weight: 500;
-  display: flex;
-}
-
-h2::after {
-  content: url('loop2.svg');
-  display: inline;
-  width: 20px;
-  height: 20px;
-  margin-left: auto;
-  cursor: pointer;
-}
-
-form {
-  padding: 0 20px;
-  height: 38px;
-  width: 100%;
-  border: none;
-}
-
-.todo {
-  padding: 0 10px;
-  width: 90%;
-  height: 100%;
-  border: none;
-  font-size: 16px;
-  font-style: italic;
-}
-
-.todo-list {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+  background: #fff;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 li {
-  list-style: none;
+  list-style-type: none;
+  height: 60px;
+  border-bottom: 1px solid gray;
+  line-height: 60px;
+  padding: 0 15px;
+  font-size: 20px;
   display: flex;
-  align-items: center;
-  padding-left: 10px;
-  width: 100%;
 }
 
-li > div {
+li:last-child {
+  background-color: rgb(227, 226, 226);
+  text-align: center;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 85%;
-  margin-left: 20px;
-}
-
-img {
-  width: 10px;
-  height: 15px;
-}
-
-.btn {
-  width: 100%;
-  height: 48px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
-  color: grey;
+  color: gray;
+}
+
+li:last-child:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}
+
+i {
+  margin: auto 10px;
+  opacity: 0.5;
+}
+
+p {
+  width: 80%;
+  margin: 0;
+  white-space: nowrap;
+}
+
+input {
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.yellowish {
+  background-color: rgb(234, 234, 219);
+}
+
+.screen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.list-holder {
+  max-width: 600px;
+  width: 80vw;
+  border: 1px solid gray;
+  box-shadow: 3px 3px 5px gray;
+  margin: auto;
+  padding: 0;
+}
+
+.menu-icon {
+  margin-left: auto;
+  margin-right: 0;
+  margin-right: 10px;
+  opacity: 0.5;
+}
+
+.delete-icon {
+  margin-left: auto;
+  margin-right: 0;
+  margin-right: 5px;
+  opacity: 0.5;
+}
+
+.header,
+.add-text {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 25px;
+}
+
+.add-text {
+  font-style: italic;
+  opacity: 0.4;
+  padding-left: 10px;
 }
