@@ -1,4 +1,10 @@
-import { populate} from './todo.js';
+import  populate from './todo.js';
+
+// export default function populate() {
+//   const storedItems = JSON.parse(localStorage.getItem('container'));
+//   if (storedItems !== null) {
+//     listContainer = storedItems;
+//   }
 
 export default function cleanListener() {
   const clearBtn = document.querySelector('.clear-text');
