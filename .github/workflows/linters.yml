@@ -45,8 +45,8 @@ jobs:
       - name: Stylelint Report
         run: npx stylelint "**/*.{css,scss}"
   eslint:
-    name: ESLint
-    runs-on: ubuntu-18.04
+    # name: ESLint
+    # runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
