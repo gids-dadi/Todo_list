@@ -145,6 +145,7 @@ export default function populate() {
   listDisplay.appendChild(ul);
   addListener();
   menuListener();
+  cleanListener();
 }
 
 window.onload = () => {
