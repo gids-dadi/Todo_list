@@ -20,6 +20,7 @@
 - JavaScript
 
 ## Live Demo
+(Type this link) [https://gids-dadi.github.io/Todo_list/]
 
 ## Getting Started
 
