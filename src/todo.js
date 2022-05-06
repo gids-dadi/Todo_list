@@ -1,4 +1,5 @@
 let listContainer = [];
+
 class Task {
   constructor(disc) {
     this.index = 0;
@@ -6,7 +7,8 @@ class Task {
     this.description = disc;
   }
 }
-export default function populate() {
+
+function populate() {
   const storedItems = JSON.parse(localStorage.getItem('container'));
   if (storedItems !== null) {
     listContainer = storedItems;
@@ -21,7 +23,6 @@ export default function populate() {
 
   function addListener() {
     const textField = document.querySelector('.add-text');
-
     textField.addEventListener('keypress', (e) => {
       const textValue = document.getElementById('add-text');
       const taskInput = textValue.value;
@@ -50,7 +51,8 @@ export default function populate() {
       checkBox.addEventListener('click', () => {
         checkBox.classList.toggle('fa-square');
         checkBox.classList.toggle('fa-square-check');
-        listContainer[item.index].completed = !listContainer[item.index].completed;
+        listContainer[item.index].completed =
+          !listContainer[item.index].completed;
         localStorage.setItem('container', JSON.stringify(listContainer));
       });
       menuBtn.addEventListener('click', () => {
@@ -61,12 +63,12 @@ export default function populate() {
           menuBtn.classList.add(
             'menu-icon',
             'fa-ellipsis-vertical',
-            `menu-icon${item.index}`,
+            `menu-icon${item.index}`
           );
           menuBtn.classList.remove(
             'delete-icon',
             `delete-icon${item.index}`,
-            'fa-trash-can',
+            'fa-trash-can'
           );
         } else {
           taskDisc.setAttribute('contenteditable', true);
@@ -74,12 +76,12 @@ export default function populate() {
           menuBtn.classList.remove(
             'menu-icon',
             'fa-ellipsis-vertical',
-            `menu-icon${item.index}`,
+            `menu-icon${item.index}`
           );
           menuBtn.classList.add(
             'delete-icon',
             `delete-icon${item.index}`,
-            'fa-trash-can',
+            'fa-trash-can'
           );
         }
       });
@@ -94,14 +96,15 @@ export default function populate() {
         menuBtn.classList.add(
           'menu-icon',
           'fa-ellipsis-vertical',
-          `menu-icon${item.index}`,
+          `menu-icon${item.index}`
         );
         menuBtn.classList.remove(
           'delete-icon',
           `delete-icon${item.index}`,
-          'fa-trash-can',
+          'fa-trash-can'
         );
       });
+
       // Prevent the Enter key from working while editing the task discriptions.
       taskDisc.addEventListener('keydown', (e) => {
         if (e.keyCode === 13) {
@@ -152,7 +155,7 @@ export default function populate() {
   addListener();
   menuListener();
   cleanListener();
-}
+};
 
 window.onload = () => {
   populate();
