@@ -35,12 +35,11 @@ To get a local copy up and running follow these simple example steps.
 - Run `npm build` to build the application with webpack .
 - Run `npm start` to start the development server.
 
-## Authors
+## Author
 
 👤 **Gideon Dadi**
 
--Linkedin [@GideonDadi] (https://www.linkedin.com/feed/)
-
+- Linkedin [@GideonDadi](https://www.linkedin.com/feed/)
 - GitHub: [@gids_dadi](https://github.com/gids-dadi)
 - Twitter: [@Dadi_AG](https://twitter.com/Dadi_AG)
 
